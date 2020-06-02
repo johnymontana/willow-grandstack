@@ -1,7 +1,124 @@
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://grandstack.io/deploy-starter-netlify) [![Deploy to Vercel](https://vercel.com/button)](https://grandstack.io/deploy-starter-vercel) [![Provision Neo4j](https://grandstack.io/img/provision-neo4j.png)](https://sandbox.neo4j.com/?usecase=blank-sandbox)
 
+# Willow
 
-# GRANDstack Starter
+A real estate search application built using GRANDstack.
+
+## Requirements
+
+- As a user I want to search for properties for sale by city so that I can view property details.
+
+## Data Model
+
+<details>
+  <summary>Arrows markdup</summary>
+  
+  Markup for defining data model using the [Arrows graph diagraming tool](http://www.apcjones.com/arrows/)
+
+```html
+<ul
+  class="graph-diagram-markup"
+  data-internal-scale="1"
+  data-external-scale="1"
+>
+  <li
+    class="node"
+    data-node-id="0"
+    data-x="-693.8014526367188"
+    data-y="-284.10595703125"
+  >
+    <span class="caption">User</span>
+    <dl class="properties">
+      <dt>id</dt>
+      <dd>String</dd>
+      <dt>name</dt>
+      <dd>String</dd>
+    </dl>
+  </li>
+  <li
+    class="node"
+    data-node-id="1"
+    data-x="-280.34326171875"
+    data-y="81.62985229492188"
+  >
+    <span class="caption">Listing</span>
+    <dl class="properties">
+      <dt>createdAt</dt>
+      <dd>DateTime</dd>
+      <dt>listingId</dt>
+      <dd>String</dd>
+      <dt>askingPrice</dt>
+      <dd>Int</dd>
+      <dt>bedRooms</dt>
+      <dd>Int</dd>
+    </dl>
+  </li>
+  <li
+    class="node"
+    data-node-id="2"
+    data-x="647.443603515625"
+    data-y="-415.84178161621094"
+  >
+    <span class="caption">City</span>
+    <dl class="properties">
+      <dt>name</dt>
+      <dd>String</dd>
+    </dl>
+  </li>
+  <li
+    class="node"
+    data-node-id="3"
+    data-x="117.82290720939636"
+    data-y="-248.87263107299805"
+  >
+    <span class="caption">Property</span>
+    <dl class="properties">
+      <dt>address</dt>
+      <dd>String</dd>
+      <dt>location</dt>
+      <dd>Point</dd>
+      <dt>bounds</dt>
+      <dd>[Point]</dd>
+    </dl>
+  </li>
+  <li
+    class="node"
+    data-node-id="4"
+    data-x="480.4899597167969"
+    data-y="115.72407531738281"
+  >
+    <span class="caption">Listing</span>
+    <dl class="properties">
+      <dt>createAt</dt>
+      <dd>DateTime</dd>
+      <dt>active</dt>
+      <dd>Bool</dd>
+    </dl>
+  </li>
+  <li class="relationship" data-from="0" data-to="1">
+    <span class="type">SAVED</span>
+    <dl class="properties">
+      <dt>createdAt</dt>
+      <dd>DateTime</dd>
+    </dl>
+  </li>
+  <li class="relationship" data-from="1" data-to="3">
+    <span class="type">OF</span>
+  </li>
+  <li class="relationship" data-from="4" data-to="3">
+    <span class="type">OF</span>
+  </li>
+  <li class="relationship" data-from="2" data-to="3"></li>
+</ul>
+```
+
+</details>
+
+![](img/datamodel.svg)
+
+## GRANDstack Starter
+
+This project was created using the GRANDstack Starter.
 
 ```
 npx create-grandstack-app myNewApp
@@ -169,7 +286,6 @@ If you want to load the example DB after the services have been started:
 ```
 docker-compose run api npm run seedDb
 ```
-
 
 You can find instructions for other ways to use Neo4j (Neo4j Desktop, Neo4j Aura, and other cloud services) in the [Neo4j directory README.](./neo4j)
 
