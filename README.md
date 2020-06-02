@@ -2,7 +2,12 @@
 
 # Willow
 
-A real estate search application built using GRANDstack.
+A real estate search application built using GRANDstack: GraphQL, React, Apollo, and Neo4j Database.
+
+## Architecture
+
+![Architecture diagram](img/architecture.svg)
+  
 
 ## Data Model
 
@@ -110,7 +115,7 @@ A real estate search application built using GRANDstack.
 
 </details>
 
-![](img/datamodel.svg)
+![Graph data model](img/datamodel.svg)
 
 ## Requirements
 
