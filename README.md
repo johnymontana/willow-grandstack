@@ -11,7 +11,7 @@ A real estate search application built using GRANDstack.
 ## Data Model
 
 <details>
-  <summary>Arrows markdup</summary>
+  <summary>Arrows markup</summary>
   
   Markup for defining data model using the [Arrows graph diagraming tool](http://www.apcjones.com/arrows/)
 
