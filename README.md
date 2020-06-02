@@ -4,10 +4,6 @@
 
 A real estate search application built using GRANDstack.
 
-## Requirements
-
-- As a user I want to search for properties for sale by city so that I can view property details.
-
 ## Data Model
 
 <details>
@@ -115,6 +111,18 @@ A real estate search application built using GRANDstack.
 </details>
 
 ![](img/datamodel.svg)
+
+## Requirements
+
+- As a user I want to search for properties for sale by city so that I can view property details.
+
+```cypher
+MATCH (l:Listing)-[:OF]-(p:Property)-[:IN]->(c:City)
+WHERE c.name = "San Mateo"
+```
+
+- As a user I want to limit my search to properties with certain attributes or range of attributes so that I can narrow the results to those relevant to me.
+- As a user searching for properties I want to view property details so I can learn more about the listing.
 
 ## GRANDstack Starter
 
