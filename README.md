@@ -7,7 +7,6 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
 ## Architecture
 
 ![Architecture diagram](img/architecture.svg)
-  
 
 ## Data Model
 
@@ -39,8 +38,8 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
   <li
     class="node"
     data-node-id="1"
-    data-x="-280.34326171875"
-    data-y="81.62985229492188"
+    data-x="-233.99942016601562"
+    data-y="115.72407531738281"
   >
     <span class="caption">Listing</span>
     <dl class="properties">
@@ -52,13 +51,17 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
       <dd>Int</dd>
       <dt>bedRooms</dt>
       <dd>Int</dd>
+      <dt>bathRooms</dt>
+      <dd>Int</dd>
+      <dt>squareFootage</dt>
+      <dd>Int</dd>
     </dl>
   </li>
   <li
     class="node"
     data-node-id="2"
-    data-x="647.443603515625"
-    data-y="-415.84178161621094"
+    data-x="664.7286987304688"
+    data-y="-371.18873596191406"
   >
     <span class="caption">City</span>
     <dl class="properties">
@@ -69,8 +72,8 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
   <li
     class="node"
     data-node-id="3"
-    data-x="117.82290720939636"
-    data-y="-248.87263107299805"
+    data-x="57.56156039237976"
+    data-y="-192.5996208190918"
   >
     <span class="caption">Property</span>
     <dl class="properties">
@@ -85,15 +88,17 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
   <li
     class="node"
     data-node-id="4"
-    data-x="480.4899597167969"
+    data-x="368.13714599609375"
     data-y="115.72407531738281"
   >
     <span class="caption">Listing</span>
     <dl class="properties">
-      <dt>createAt</dt>
+      <dt>createdAt</dt>
       <dd>DateTime</dd>
       <dt>active</dt>
       <dd>Bool</dd>
+      <dt>askingPrice</dt>
+      <dd>Int</dd>
     </dl>
   </li>
   <li class="relationship" data-from="0" data-to="1">
@@ -109,7 +114,9 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
   <li class="relationship" data-from="4" data-to="3">
     <span class="type">OF</span>
   </li>
-  <li class="relationship" data-from="2" data-to="3"></li>
+  <li class="relationship" data-from="3" data-to="2">
+    <span class="type">IN_CITY</span>
+  </li>
 </ul>
 ```
 
