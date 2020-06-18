@@ -93,11 +93,25 @@ Create index on `location` property:
 CREATE INDEX ON :Property(location)
 ```
 
-
-Query for property given a latitude and longitude using [spatial algorithms library](https://github.com/neo4j-contrib/spatial-algorithms/)
+given a point:
 
 ```cypher
-MATCH (p:Property)
-WHERE spatial.algo.withinPolygon(Point({latitude:46.88110604, longitude:-113.99735408}), p.polygon)
+RETURN Point({latitude:45.667397, longitude:-111.054718})
+```
+
+Find properties within 1km of this point:
+
+```cypher
+MATCH (p:Property) 
+WHERE EXISTS(p.location) 
+AND distance(p.location, Point({latitude:45.667397, longitude:-111.054718})) < 1000
+RETURN p LIMIT 10
+```
+
+What property does this point belong to? Query withinPolygon using [spatial algorithms library](https://github.com/neo4j-contrib/spatial-algorithms/)
+
+```cypher
+MATCH (p:Property) WHERE EXISTS(p.polygon)
+AND spatial.algo.withinPolygon(Point({latitude:45.667397, longitude:-111.054718}), p.polygon)
 RETURN p
 ```
