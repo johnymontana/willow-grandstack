@@ -81,6 +81,18 @@ MATCH (p:Property) WHERE EXISTS(p.polygon)
 SET p.location = p.polygon[0]
 ```
 
+Create index on `polygon` property for fast searching:
+
+```cypher
+CREATE INDEX ON :Property(polygon)
+```
+
+Create index on `location` property:
+
+```cypher
+CREATE INDEX ON :Property(location)
+```
+
 
 Query for property given a latitude and longitude using [spatial algorithms library](https://github.com/neo4j-contrib/spatial-algorithms/)
 
