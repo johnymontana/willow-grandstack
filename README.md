@@ -16,98 +16,27 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
   Markup for defining data model using the [Arrows graph diagraming tool](http://www.apcjones.com/arrows/)
 
 ```html
-<ul
-  class="graph-diagram-markup"
-  data-internal-scale="1"
-  data-external-scale="1"
->
-  <li
-    class="node"
-    data-node-id="0"
-    data-x="-693.8014526367188"
-    data-y="-284.10595703125"
-  >
-    <span class="caption">User</span>
-    <dl class="properties">
-      <dt>id</dt>
-      <dd>String</dd>
-      <dt>name</dt>
-      <dd>String</dd>
-    </dl>
-  </li>
-  <li
-    class="node"
-    data-node-id="1"
-    data-x="-233.99942016601562"
-    data-y="115.72407531738281"
-  >
-    <span class="caption">Listing</span>
-    <dl class="properties">
-      <dt>createdAt</dt>
-      <dd>DateTime</dd>
-      <dt>listingId</dt>
-      <dd>String</dd>
-      <dt>askingPrice</dt>
-      <dd>Int</dd>
-      <dt>bedRooms</dt>
-      <dd>Int</dd>
-      <dt>bathRooms</dt>
-      <dd>Int</dd>
-      <dt>squareFootage</dt>
-      <dd>Int</dd>
-    </dl>
-  </li>
-  <li
-    class="node"
-    data-node-id="2"
-    data-x="664.7286987304688"
-    data-y="-371.18873596191406"
-  >
-    <span class="caption">City</span>
-    <dl class="properties">
-      <dt>name</dt>
-      <dd>String</dd>
-    </dl>
-  </li>
-  <li
-    class="node"
-    data-node-id="3"
-    data-x="57.56156039237976"
-    data-y="-192.5996208190918"
-  >
-    <span class="caption">Property</span>
-    <dl class="properties">
-      <dt>address</dt>
-      <dd>String</dd>
-      <dt>location</dt>
-      <dd>Point</dd>
-      <dt>bounds</dt>
-      <dd>[Point]</dd>
-    </dl>
-  </li>
-  <li
-    class="node"
-    data-node-id="4"
-    data-x="368.13714599609375"
-    data-y="115.72407531738281"
-  >
-    <span class="caption">Listing</span>
-    <dl class="properties">
-      <dt>createdAt</dt>
-      <dd>DateTime</dd>
-      <dt>active</dt>
-      <dd>Bool</dd>
-      <dt>askingPrice</dt>
-      <dd>Int</dd>
-    </dl>
-  </li>
+<ul class="graph-diagram-markup" data-internal-scale="1" data-external-scale="1">
+  <li class="node" data-node-id="0" data-x="-1713.637451171875" data-y="317.54315185546875">
+    <span class="caption">User</span><dl class="properties"><dt>id</dt><dd>String</dd><dt>name</dt><dd>String</dd></dl></li>
+  <li class="node" data-node-id="1" data-x="-729.3491363525391" data-y="1243.0390625">
+    <span class="caption">Listing</span><dl class="properties"><dt>createdAt</dt><dd>DateTime</dd><dt>listingId</dt><dd>String</dd><dt>askingPrice</dt><dd>Int</dd><dt>bedRooms</dt><dd>Int</dd><dt>bathRooms</dt><dd>Int</dd><dt>squareFootage</dt><dd>Int</dd></dl></li>
+  <li class="node" data-node-id="2" data-x="1083.0440673828125" data-y="-459.44090270996094">
+    <span class="caption">City</span><dl class="properties"><dt>name</dt><dd>String</dd></dl></li>
+  <li class="node" data-node-id="3" data-x="28.259565114974976" data-y="458.7174263000488">
+    <span class="caption">Property</span><dl class="properties"><dt>id</dt><dd>String</dd><dt>address</dt><dd>String</dd><dt>location</dt><dd>Point</dd><dt>bounds</dt><dd>[Point]</dd></dl></li>
+  <li class="node" data-node-id="4" data-x="1409.7587890625" data-y="554.8055877685547">
+    <span class="caption">Listing</span><dl class="properties"><dt>createdAt</dt><dd>DateTime</dd><dt>active</dt><dd>Bool</dd><dt>askingPrice</dt><dd>Int</dd></dl></li>
+  <li class="node" data-node-id="5" data-x="252.71633911132812" data-y="-393.4471435546875">
+    <span class="caption">Neighborhood</span><dl class="properties"><dt>name</dt><dd>String</dd></dl></li>
+  <li class="node" data-node-id="6" data-x="-729.3491363525391" data-y="-348.6604309082031">
+    <span class="caption">Subdivision</span><dl class="properties"><dt>name</dt><dd>String</dd></dl></li>
+  <li class="node" data-node-id="7" data-x="682.1227416992188" data-y="1032.9970703125">
+    <span class="caption">Appraisal</span><dl class="properties"><dt>property_id</dt><dd>String,</dd><dt>year</dt><dd>Int,</dd><dt>land</dt><dd>Int,</dd><dt>building</dt><dd>Int,</dd><dt>total</dt><dd>Int,</dd><dt>method</dt><dd>String</dd></dl></li>
+  <li class="node" data-node-id="8" data-x="28.259565114974976" data-y="1112.759033203125">
+    <span class="caption">Appraisal</span><dl class="properties"><dt>property_id</dt><dd>String,</dd><dt>year</dt><dd>Int,</dd><dt>land</dt><dd>Int,</dd><dt>building</dt><dd>Int,</dd><dt>total</dt><dd>Int,</dd><dt>method</dt><dd>String</dd></dl></li>
   <li class="relationship" data-from="0" data-to="1">
-    <span class="type">SAVED</span>
-    <dl class="properties">
-      <dt>createdAt</dt>
-      <dd>DateTime</dd>
-    </dl>
-  </li>
+    <span class="type">SAVED</span><dl class="properties"><dt>createdAt</dt><dd>DateTime</dd></dl></li>
   <li class="relationship" data-from="1" data-to="3">
     <span class="type">OF</span>
   </li>
@@ -117,8 +46,19 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
   <li class="relationship" data-from="3" data-to="2">
     <span class="type">IN_CITY</span>
   </li>
-</ul>
-```
+  <li class="relationship" data-from="3" data-to="5">
+    <span class="type">:IN_NEIGHBORHOOD</span>
+  </li>
+  <li class="relationship" data-from="3" data-to="6">
+    <span class="type">:IN_SUBDIVISION</span>
+  </li>
+  <li class="relationship" data-from="3" data-to="7">
+    <span class="type">HAS_APPRAISAL</span>
+  </li>
+  <li class="relationship" data-from="3" data-to="8">
+    <span class="type">HAS_APPRAISAL</span>
+  </li>
+</ul>```
 
 </details>
 
