@@ -74,6 +74,14 @@ CALL apoc.load.json("file:///filtered.geojson") YIELD value
     SET p.polygon = apoc.cypher.runFirstColumnSingle('UNWIND $coords AS coord RETURN COLLECT(Point({latitude: coord[1], longitude: coord[0]}))', {coords: value.geometry.coordinates[0]})
 ```
 
+Set location property to first Point in polygon
+
+```cypher
+MATCH (p:Property) WHERE EXISTS(p.polygon)
+SET p.location = p.polygon[0]
+```
+
+
 Query for property given a latitude and longitude using [spatial algorithms library](https://github.com/neo4j-contrib/spatial-algorithms/)
 
 ```cypher
