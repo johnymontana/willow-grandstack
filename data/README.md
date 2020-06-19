@@ -59,7 +59,6 @@ RETURN * ORDER BY avgValue DESC
 
 **Working with geospatial data**
 
-
 Filter out any MultiPolygon geometries, we'll deal with those later
 
 ```shell
@@ -102,8 +101,8 @@ RETURN Point({latitude:45.667397, longitude:-111.054718})
 Find properties within 1km of this point:
 
 ```cypher
-MATCH (p:Property) 
-WHERE EXISTS(p.location) 
+MATCH (p:Property)
+WHERE EXISTS(p.location)
 AND distance(p.location, Point({latitude:45.667397, longitude:-111.054718})) < 1000
 RETURN p LIMIT 10
 ```
@@ -114,4 +113,55 @@ What property does this point belong to? Query withinPolygon using [spatial algo
 MATCH (p:Property) WHERE EXISTS(p.polygon)
 AND spatial.algo.withinPolygon(Point({latitude:45.667397, longitude:-111.054718}), p.polygon)
 RETURN p
+```
+
+**Additional Property Information**
+
+See [ScrapePropertyRecordCards.ipynb](ScrapePropertyRecordCards.ipynb) python notebook to scrape additional property information.
+
+```cypher
+CREATE CONSTRAINT ON (s:Subdivision) ASSERT s.name IS UNIQUE;
+```
+
+```cypher
+CREATE CONSTRAINT ON (n:Neighborhood) ASSERT n.name IS UNQIUE;
+```
+
+```cypher
+LOAD CSV WITH HEADERS FROM "file:///property_features_full.csv" AS row
+MATCH (p:Property {id: row.id})
+SET p.sqft = toInteger(row.sqft),
+    p.bedrooms = toInteger(row.bedrooms),
+    p.full_baths = toInteger(row.full_baths),
+    p.half_baths = toInteger(row.half_baths),
+    p.lot_size = toInteger(row.lot_size),
+    p.acres    = toInteger(row.acres),
+    p.year_built = toInteger(row.year_built),
+    p.address = row.address,
+    p.subdivision = row.subdivision,
+    p.style = row.style,
+    p.heating = row.heating,
+    p.category = row.subcategory
+
+MERGE (s:Subdivision {name: coalesce(row.subdivision, 'N/A')})
+MERGE (s)<-[:IN_SUBDIVISION]-(p)
+
+
+MERGE (n:Neighborhood {code: coalesce(row.neighborhood, 'N/A')})
+MERGE (n)<-[:IN_NEIGHBORHOOD]-(p)
+```
+
+```cypher
+CREATE CONSTRAINT ON (n:Appraisal) ASSERT (n.property_id, n.year) IS NODE KEY
+```
+
+```cypher
+LOAD CSV WITH HEADERS FROM "file:///appraisals.csv" AS row
+MATCH (p:Property {id: row.id})
+MERGE (a:Appraisal {property_id: row.id, year: toInteger(row.year)})
+SET a.land = toInteger(row.land),
+    a.building = toInteger(row.building),
+    a.total = toInteger(row.total),
+    a.method = row.method
+MERGE (p)-[:HAS_APPRAISAL]->(a)
 ```
