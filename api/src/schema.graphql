@@ -1,3 +1,49 @@
+type Query {
+  propertyCount: Int @cypher(statement: "MATCH (p:Property) RETURN COUNT(p)")
+  cityValues: [CityValue]
+    @cypher(
+      statement: """
+      MATCH (c:City)<-[:IN_CITY]-(p:Property)
+      WHERE EXISTS(p.TotalValue)
+      WITH c.name AS city, avg(p.TotalValue) AS average
+      RETURN {city: city, average: average} AS obj
+      """
+    )
+}
+
+type CityValue {
+  city: String
+  average: Float
+}
+
+type City {
+  _id: Long!
+  name: String!
+  propertys: [Property] @relation(name: "IN_CITY", direction: "IN")
+}
+
+type Subdivision {
+  _id: Long!
+  name: String!
+  propertys: [Property] @relation(name: "IN_SUBDIVISION", direction: "IN")
+}
+
+type Neighborhood {
+  _id: Long!
+  name: String!
+  propertys: [Property] @relation(name: "IN_NEIGHBORHODD", direction: "IN")
+}
+
+type Appraisal {
+  _id: Long!
+  building: Int!
+  land: Int!
+  property_id: String!
+  total: Int!
+  year: Int!
+  propertys: [Property] @relation(name: "HAS_APPRAISAL", direction: "IN")
+}
+
 type Property {
   _id: Long!
   AddressL_1: String
@@ -39,7 +85,24 @@ type Property {
   TotalValue: Int!
   Township: String
   WildHayAcr: Float!
+  acres: Float
+  address: String
+  bedrooms: Int
+  category: String
+  full_baths: Int
+  half_baths: Int
+  heating: String
   id: String!
-  estimatedSalesPrice: Int
-    @cypher(statement: "RETURN toInteger(this.TotalValue * 1.2)")
+  location: Point
+  lot_size: Int
+  polygon: [Point]
+  sqft: Int
+  style: String
+  year_built: Int
+  in_city: [City] @relation(name: "IN_CITY", direction: "OUT")
+  in_subdivision: [Subdivision]
+    @relation(name: "IN_SUBDIVISION", direction: "OUT")
+  in_neighborhodd: [Neighborhood]
+    @relation(name: "IN_NEIGHBORHODD", direction: "OUT")
+  has_appraisal: [Appraisal] @relation(name: "HAS_APPRAISAL", direction: "OUT")
 }

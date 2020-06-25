@@ -10,18 +10,26 @@ import Title from './Title'
 
 const GET_RECENT_REVIEWS_QUERY = gql`
   {
-    Review(first: 10, orderBy: date_desc) {
-      user {
+    Property(
+      first: 10
+      orderBy: TotalAcres_desc
+      filter: {
+        address_not: null
+        bedrooms_not: null
+        full_baths_not: null
+        in_subdivision: { name_not: "N/A" }
+      }
+    ) {
+      TotalValue
+      id
+      address
+      bedrooms
+      full_baths
+      half_baths
+      sqft
+      in_subdivision {
         name
       }
-      business {
-        name
-      }
-      date {
-        formatted
-      }
-      text
-      stars
     }
   }
 `
@@ -33,25 +41,25 @@ export default function RecentReviews() {
 
   return (
     <React.Fragment>
-      <Title>Recent Reviews</Title>
+      <Title>Most Expensive Properties</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Business Name</TableCell>
-            <TableCell>User Name</TableCell>
-            <TableCell>Review Text</TableCell>
-            <TableCell align="right">Review Stars</TableCell>
+            <TableCell>Address</TableCell>
+            <TableCell>Subdivision Name</TableCell>
+            <TableCell>Bedrooms</TableCell>
+            <TableCell>Sqft</TableCell>
+            <TableCell align="right">Total Value</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.Review.map((row) => (
+          {data.Property.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.date.formatted}</TableCell>
-              <TableCell>{row.business.name}</TableCell>
-              <TableCell>{row.user.name}</TableCell>
-              <TableCell>{row.text}</TableCell>
-              <TableCell align="right">{row.stars}</TableCell>
+              <TableCell>{row.address}</TableCell>
+              <TableCell>{row.in_subdivision[0].name}</TableCell>
+              <TableCell>{row.bedrooms}</TableCell>
+              <TableCell>{row.sqft}</TableCell>
+              <TableCell align="right">{row.TotalValue}</TableCell>
             </TableRow>
           ))}
         </TableBody>
