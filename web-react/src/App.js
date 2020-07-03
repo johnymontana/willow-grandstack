@@ -3,6 +3,7 @@ import React from 'react'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 
 import UserList from './components/UserList'
+import Search from './components/Search'
 
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
@@ -203,12 +204,12 @@ export default function App() {
               </ListItem>
             </Link>
 
-            <Link to="/users" className={classes.navLink}>
+            <Link to="/search" className={classes.navLink}>
               <ListItem button>
                 <ListItemIcon>
                   <PeopleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Users" />
+                <ListItemText primary="Search" />
               </ListItem>
             </Link>
           </List>
@@ -220,7 +221,7 @@ export default function App() {
             <Switch>
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/businesses" component={UserList} />
-              <Route exact path="/users" component={UserList} />
+              <Route exact path="/search" component={Search} />
             </Switch>
 
             <Box pt={4}>
