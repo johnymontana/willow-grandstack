@@ -37,7 +37,7 @@ export default function MapResults(props) {
   const [viewport, setViewport] = useState({
     latitude: 45.667397,
     longitude: -111.054718,
-    zoom: 15,
+    zoom: 13,
   })
 
   const [currentProperty, setCurrentProperty] = useState(props.properties[0])

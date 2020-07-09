@@ -6,11 +6,11 @@ import { useQuery } from '@apollo/react-hooks'
 const PROPERTY_SEARCH_QUERY = gql`
   {
     Property(
-      first: 10
+      first: 200
       filter: {
         location_distance_lt: {
           point: { latitude: 45.667397, longitude: -111.054718 }
-          distance: 2000
+          distance: 1000
         }
       }
     ) {
