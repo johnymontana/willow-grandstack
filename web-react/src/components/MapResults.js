@@ -4,6 +4,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import MapGL, { Marker } from '@urbica/react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { GridList, GridListTile } from '@material-ui/core'
 
 export default function MapResults(props) {
   console.log(props.properties)
@@ -83,6 +84,13 @@ export default function MapResults(props) {
               <li>Full baths: {currentProperty.full_baths}</li>
               <li>Half baths: {currentProperty.half_baths}</li>
             </ul>
+            <GridList cellHeight={160} cols={2}>
+              {currentProperty.photos.map((v, i) => (
+                <GridListTile key={i} cols={1}>
+                  <img src={v.url}></img>
+                </GridListTile>
+              ))}
+            </GridList>
           </Paper>
         </Grid>
       </Grid>
