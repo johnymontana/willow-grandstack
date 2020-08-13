@@ -1,19 +1,59 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
+import { Auth0Provider, useAuth0 } from '@auth0/auth0-react'
 
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_GRAPHQL_URI || '/graphql',
-})
+const AppWithApollo = () => {
+  const [accessToken, setAccessToken] = useState()
+  const { getAccessTokenSilently, loginWithRedirect } = useAuth0()
+
+  const getAccessToken = useCallback(async () => {
+    try {
+      const token = await getAccessTokenSilently()
+      console.log(token)
+      setAccessToken(token)
+    } catch (err) {
+      //loginWithRedirect()
+    }
+  }, [getAccessTokenSilently, loginWithRedirect])
+
+  useEffect(() => {
+    getAccessToken()
+  }, [getAccessToken])
+
+  const client = new ApolloClient({
+    uri: process.env.REACT_APP_GRAPHQL_URI || '/graphql',
+    request: async (operation) => {
+      if (accessToken) {
+        operation.setContext({
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+      }
+    },
+  })
+
+  return (
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  )
+}
 
 const Main = () => (
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>
+  <Auth0Provider
+    domain="grandstack.auth0.com"
+    clientId="DjKLCmil2J9OJryTpdGN2zUdF5Dsfzqb"
+    redirectUri={window.location.origin}
+    audience="https://grandstack.auth0.com/api/v2/"
+  >
+    <AppWithApollo />
+  </Auth0Provider>
 )
 
 ReactDOM.render(<Main />, document.getElementById('root'))

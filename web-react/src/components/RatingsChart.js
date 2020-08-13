@@ -25,7 +25,7 @@ export default function RatingsChart() {
   const theme = useTheme()
 
   const { loading, error, data } = useQuery(GET_DATA_QUERY)
-  if (error) return <p>Error</p>
+  if (error) return <p>Sign in for exclusive content!</p>
   if (loading) return <p>Loading</p>
 
   return (

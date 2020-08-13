@@ -1,6 +1,9 @@
 type Query {
-  propertyCount: Int @cypher(statement: "MATCH (p:Property) RETURN COUNT(p)")
+  propertyCount: Int
+    @isAuthenticated
+    @cypher(statement: "MATCH (p:Property) RETURN COUNT(p)")
   cityValues: [CityValue]
+    @isAuthenticated
     @cypher(
       statement: """
       MATCH (c:City)<-[:IN_CITY]-(p:Property)

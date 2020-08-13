@@ -22,7 +22,7 @@
     "apollo-server-lambda": "^2.13.1",
     "axios": "^0.19.2",
     "csv-parse": "^4.10.1",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.2.0",
     "graphql-tag": "^2.10.1",
     "neo4j-driver": "^4.0.2",
     "neo4j-graphql-js": "^2.14.2",
