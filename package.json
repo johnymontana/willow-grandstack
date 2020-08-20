@@ -30,5 +30,8 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "dependencies": {
+    "express-jwt": "^6.0.0"
   }
 }

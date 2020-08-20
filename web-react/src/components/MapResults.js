@@ -4,11 +4,24 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import MapGL, { Marker } from '@urbica/react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { GridList, GridListTile } from '@material-ui/core'
+import { GridList, GridListTile, Button } from '@material-ui/core'
+import StarredProperties from './StarredProperties'
+import { useMutation } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
 
 export default function MapResults(props) {
   console.log(props.properties)
   const theme = useTheme()
+
+  const [onSaveHandler, { data, loading, error }] = useMutation(gql`
+    mutation starPropertyMutation($id: Int!) {
+      starProperty(id: $id) {
+        address
+        LegalDescr
+        id
+      }
+    }
+  `)
 
   const style = {
     padding: '4px',
@@ -46,7 +59,12 @@ export default function MapResults(props) {
   return (
     <React.Fragment>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={8} lg={7}>
+        <Grid item xs={12} md={2} lg={2}>
+          <Paper className={fixedHeightPaper}>
+            <StarredProperties />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={7} lg={6}>
           <Paper className={fixedHeightPaper}>
             <MapGL
               style={{ width: '100%', height: '100%' }}
@@ -72,12 +90,18 @@ export default function MapResults(props) {
                 )
               })}
             </MapGL>
-            ;
           </Paper>
         </Grid>
-        <Grid item xs={12} md={4} lg={5}>
+        <Grid item xs={12} md={3} lg={4}>
           <Paper className={fixedHeightPaper}>
             <p>{currentProperty.address}</p>
+            <Button
+              onClick={() =>
+                onSaveHandler({ variables: { id: currentProperty.PropertyID } })
+              }
+            >
+              Star Property
+            </Button>
             <ul>
               <li>Square feet: {currentProperty.sqft}</li>
               <li>Bedrooms: {currentProperty.bedrooms}</li>

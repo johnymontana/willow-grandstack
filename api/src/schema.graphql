@@ -12,6 +12,26 @@ type Query {
       RETURN {city: city, average: average} AS obj
       """
     )
+  me: String @cypher(statement: "RETURN $cypherParams.userId")
+  getStarredProperties: [Property]
+    @cypher(
+      statement: """
+      MATCH (u:User {userId: $cypherParams.userId})-[:STARRED]->(p)
+      RETURN p
+      """
+    )
+}
+
+type Mutation {
+  starProperty(id: Int!): Property
+    @cypher(
+      statement: """
+      MATCH (p:Property {PropertyID: $id})
+      MERGE (u:User {userId: $cypherParams.userId})
+      MERGE (u)-[:STARRED]->(p)
+      RETURN p
+      """
+    )
 }
 
 type CityValue {
