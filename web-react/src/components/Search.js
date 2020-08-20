@@ -15,6 +15,7 @@ const PROPERTY_SEARCH_QUERY = gql`
       }
     ) {
       address
+      id
       bedrooms
       full_baths
       half_baths
