@@ -13,6 +13,7 @@ A real estate search application built using GRANDstack: GraphQL, React, Apollo,
 - Part 7: [Custom Resolver In Neo4j GraphQL & Photos From the Mapillary API](https://www.youtube.com/watch?v=IQ05VQxFcK0&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=4)
 - [Exploring Authorization With GraphQL & GRANDstack](https://www.youtube.com/watch?v=0SHl5v7FT_I&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=25)
 - Part 8: [GraphQL Authorization With Auth0](https://www.youtube.com/watch?v=Ay7-RyX9XPM&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=4)
+- Part 9: [Adding A Saved Properties Feature](https://www.youtube.com/watch?v=QRSwDJAkuHw&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=27)
 
 ## Functionality
 
