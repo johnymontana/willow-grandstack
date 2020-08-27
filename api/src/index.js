@@ -33,6 +33,7 @@ const schema = makeAugmentedSchema({
     },
     auth: {
       isAuthenticated: true,
+      hasScope: true,
     },
   },
 })

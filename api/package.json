@@ -26,7 +26,7 @@
     "express-jwt": "^6.0.0",
     "graphql-tag": "^2.10.1",
     "neo4j-driver": "^4.0.2",
-    "neo4j-graphql-js": "^2.14.2",
+    "neo4j-graphql-js": "^2.16.1",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
