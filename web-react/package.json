@@ -10,6 +10,7 @@
     "@urbica/react-map-gl": "^1.13.1",
     "apollo-boost": "^0.4.4",
     "classnames": "^2.2.6",
+    "frontier-forms": "^0.1.2",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
     "mapbox-gl": "^1.11.0",

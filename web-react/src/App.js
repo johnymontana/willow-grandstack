@@ -5,6 +5,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import UserList from './components/UserList'
 import Search from './components/Search'
 import Profile from './components/Profile'
+import CreateProperty from './components/CreateProperty'
 
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
@@ -229,6 +230,15 @@ export default function App() {
                 <ListItemText primary="Search" />
               </ListItem>
             </Link>
+
+            <Link to="/create" className={classes.navLink}>
+              <ListItem button>
+                <ListItemIcon>
+                  <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Create Property" />
+              </ListItem>
+            </Link>
           </List>
           <Divider />
         </Drawer>
@@ -240,6 +250,7 @@ export default function App() {
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/businesses" component={UserList} />
               <Route exact path="/search" component={Search} />
+              <Route exact path="/create" component={CreateProperty} />
             </Switch>
 
             <Box pt={4}>

@@ -50,7 +50,8 @@ const Main = () => (
     domain={process.env.REACT_APP_AUTH0_DOMAIN}
     clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
     redirectUri={window.location.origin}
-    audience="https://grandstack.auth0.com/api/v2/"
+    audience="https://foobar.grandstack.cio"
+    scope={'City: Create'}
   >
     <AppWithApollo />
   </Auth0Provider>
