@@ -1,5 +1,7 @@
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://grandstack.io/deploy-starter-netlify) [![Deploy to Vercel](https://vercel.com/button)](https://grandstack.io/deploy-starter-vercel) [![Provision Neo4j](https://grandstack.io/img/provision-neo4j.png)](https://sandbox.neo4j.com/?usecase=blank-sandbox)
 
+![Willow: A real estate search application built using GRANDstack](img/willow.png)
+
 # Willow
 
 A real estate search application built using GRANDstack: GraphQL, React, Apollo, and Neo4j Database while being livestreamed! Check out the [YouTube Playlist](https://www.youtube.com/playlist?list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg) to catch up on all the videos or select from the list below:
