@@ -1,22 +1,22 @@
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://grandstack.io/deploy-starter-netlify) [![Deploy to Vercel](https://vercel.com/button)](https://grandstack.io/deploy-starter-vercel) [![Provision Neo4j](https://grandstack.io/img/provision-neo4j.png)](https://sandbox.neo4j.com/?usecase=blank-sandbox)
 
-![Willow: A real estate search application built using GRANDstack](img/willow.png)
+![Willow: A real estate search application built using GRANDstack](img/Willow.png)
 
 # Willow
 
 A real estate search application built using GRANDstack: GraphQL, React, Apollo, and Neo4j Database while being livestreamed! Check out the [YouTube Playlist](https://www.youtube.com/playlist?list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg) to catch up on all the videos or select from the list below:
 
-- Part 1: [Getting Started With Neo4j GraphQL & Netlify](https://www.youtube.com/watch?v=i6X6oKJjx3g&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=7)
-- Part 2: [Data Modeling & Import](https://www.youtube.com/watch?v=WB--CkjKJMQ&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=8)
-- Part 3: [Geospatial Data With GraphQL](https://www.youtube.com/watch?v=_60Kf0SnuWQ&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=3)
-- Part 4: [More Geospatial GraphQL & Low Code GraphQL w/ GraphQL Architect](https://www.youtube.com/watch?v=Hly-jmH8LHo&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=9)
-- Part 5: [Apollo React Hooks & Deploying To Aura](https://www.youtube.com/watch?v=89ShDNwfVj8&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=5)
-- Part 6: [Adding A Map View & Search Results](https://www.youtube.com/watch?v=juv8IOLLNnQ&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=10)
-- Part 7: [Custom Resolver In Neo4j GraphQL & Photos From the Mapillary API](https://www.youtube.com/watch?v=IQ05VQxFcK0&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=4)
-- [Exploring Authorization With GraphQL & GRANDstack](https://www.youtube.com/watch?v=0SHl5v7FT_I&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=25)
-- Part 8: [GraphQL Authorization With Auth0](https://www.youtube.com/watch?v=Ay7-RyX9XPM&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=4)
-- Part 9: [Adding A Saved Properties Feature](https://www.youtube.com/watch?v=QRSwDJAkuHw&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=27)
-- Part 10: [GraphQL Mutations & Authorization With Auth0](https://www.youtube.com/watch?v=dCCObITlSY0&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=28)
+- **Part 1:** [Getting Started With Neo4j GraphQL & Netlify](https://www.youtube.com/watch?v=i6X6oKJjx3g&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=7)
+- **Part 2:** [Data Modeling & Import](https://www.youtube.com/watch?v=WB--CkjKJMQ&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=8)
+- **Part 3:** [Geospatial Data With GraphQL](https://www.youtube.com/watch?v=_60Kf0SnuWQ&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=3)
+- **Part 4:** [More Geospatial GraphQL & Low Code GraphQL w/ GraphQL Architect](https://www.youtube.com/watch?v=Hly-jmH8LHo&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=9)
+- **Part 5:** [Apollo React Hooks & Deploying To Aura](https://www.youtube.com/watch?v=89ShDNwfVj8&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=5)
+- **Part 6:** [Adding A Map View & Search Results](https://www.youtube.com/watch?v=juv8IOLLNnQ&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=10)
+- **Part 7:** [Custom Resolver In Neo4j GraphQL & Photos From the Mapillary API](https://www.youtube.com/watch?v=IQ05VQxFcK0&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=4)
+- [Exploring Authorization With GraphQL & GRANDstack](https://www.youtube.com/watch?v=0SHl5v7FT_I&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=25) _Not explicitly part of Willow but a good overview of the Auth options available in GRANDstack_
+- **Part 8:** [GraphQL Authorization With Auth0](https://www.youtube.com/watch?v=Ay7-RyX9XPM&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=4)
+- **Part 9:** [Adding A Saved Properties Feature](https://www.youtube.com/watch?v=QRSwDJAkuHw&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=27)
+- **Part 10:** [GraphQL Mutations & Authorization With Auth0](https://www.youtube.com/watch?v=dCCObITlSY0&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=28)
 
 ## Functionality
 
